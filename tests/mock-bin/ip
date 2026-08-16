@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ "${1:-}" == "link" && "${2:-}" == "show" && "${3:-}" == "vmbr0" ]]; then
+  printf '2: vmbr0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP\n'
+  exit 0
+fi
+
+if [[ "${1:-}" == "-br" && "${2:-}" == "link" && "${3:-}" == "show" && "${4:-}" == "vmbr0" ]]; then
+  printf 'vmbr0            UP             00:00:00:00:00:00\n'
+  exit 0
+fi
+
+exit 1

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+printf 'pve-manager/9.2.2/mock-kernel\n'

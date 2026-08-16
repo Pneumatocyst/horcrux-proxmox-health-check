@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+case "${1:-}" in
+  list)
+    # A Proxmox host with no LXC containers returns no output and exit code 0.
+    exit 0
+    ;;
+  config)
+    printf 'onboot: 0\n'
+    ;;
+  *)
+    exit 1
+    ;;
+esac

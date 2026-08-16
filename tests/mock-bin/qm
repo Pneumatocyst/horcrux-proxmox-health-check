@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+case "${1:-}" in
+  list)
+    printf '%-6s %-20s %-10s %-8s %-8s %-8s\n' "VMID" "NAME" "STATUS" "MEM(MB)" "BOOTDISK(GB)" "PID"
+    printf '%-6s %-20s %-10s %-8s %-8s %-8s\n' "100" "core-services" "running" "4096" "40.00" "1234"
+    printf '%-6s %-20s %-10s %-8s %-8s %-8s\n' "200" "gui-lab" "stopped" "4096" "40.00" "0"
+    ;;
+  config)
+    if [[ "${2:-}" == "100" ]]; then
+      printf 'onboot: 1\n'
+    else
+      printf 'onboot: 0\n'
+    fi
+    ;;
+  *)
+    exit 1
+    ;;
+esac

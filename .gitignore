@@ -1,0 +1,14 @@
+# Local endpoint configuration may contain private hostnames.
+services.local
+services.*.local
+
+# Local reports and temporary files.
+*.log
+*.tmp
+reports/
+
+# Editor and operating-system files.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

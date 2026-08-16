@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+for argument in "$@"; do
+  if [[ "$argument" == "/mnt/media" ]]; then
+    exit 0
+  fi
+done
+
+exit 1

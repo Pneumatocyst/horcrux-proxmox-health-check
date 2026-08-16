@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [[ "${1:-}" == "status" ]]; then
+  printf '%-12s %-8s %-8s %10s %10s %10s %8s\n' "Name" "Type" "Status" "Total" "Used" "Available" "%"
+  printf '%-12s %-8s %-8s %10s %10s %10s %8s\n' "local" "dir" "active" "70000000" "28000000" "42000000" "40.00%"
+  exit 0
+fi
+
+exit 1

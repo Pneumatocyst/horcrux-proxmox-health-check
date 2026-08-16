@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ "$*" == *"-o SOURCE"* ]]; then
+  printf '/dev/mock-media\n'
+  exit 0
+fi
+
+if [[ "$*" == *"-o FSTYPE"* ]]; then
+  printf 'ext4\n'
+  exit 0
+fi
+
+exit 1

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ "${1:-}" == "--failed" ]]; then
+  exit 0
+fi
+
+exit 1
