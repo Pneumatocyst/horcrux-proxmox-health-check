@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Bash validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Install ShellCheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes shellcheck
+
+      - name: Validate Bash syntax
+        run: bash -n proxmox-health-check.sh tests/smoke-test.sh
+
+      - name: Run ShellCheck
+        run: shellcheck proxmox-health-check.sh tests/smoke-test.sh
+
+      - name: Run simulated Proxmox smoke tests
+        run: bash tests/smoke-test.sh
+
+      - name: Verify release version
+        run: |
+          test "$(./proxmox-health-check.sh --version)" = \
+            "HORCRUX Proxmox Health Check 1.0.1"
+
+      - name: Scan tracked files for obvious secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git ls-files | grep -E '(^|/)(\.env|id_(rsa|ecdsa|ed25519)|.*\.pem)$'; then
+            echo "Potential secret-bearing filename is tracked." >&2
+            exit 1
+          fi
+
+          if git grep -nI -E \
+            -e '-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----' \
+            -- . ':(exclude).github/workflows/ci.yml'; then
+            echo "Private-key material may be committed." >&2
+            exit 1
+          fi
+
+          echo "No obvious secret-bearing files or private-key blocks found."

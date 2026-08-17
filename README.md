@@ -1,5 +1,7 @@
 # HORCRUX Proxmox Health Check
 
+[![CI](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/actions/workflows/ci.yml/badge.svg)](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/actions/workflows/ci.yml)
+
 A read-only Bash health report for standalone Proxmox VE hosts. It gives you a fast answer to the question: **is the host healthy, and what needs attention?**
 
 The script checks the host without deleting, restarting, pruning, or changing anything.
