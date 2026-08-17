@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented here.
 
+## [Unreleased]
+
+### Added
+
+- Contribution and security policies
+- Structured bug-report and feature-request forms
+- Pull-request checklist focused on validation and read-only safety
+- Public v1.1 roadmap
+- Release, license, and community links in the README
+
 ## [1.0.1] - 2026-08-16
 
 ### Fixed

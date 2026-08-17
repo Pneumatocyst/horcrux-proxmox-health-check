@@ -1,0 +1,77 @@
+name: Bug report
+description: Report incorrect output, an unexpected failure, or a regression.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Sanitize all output before submitting it. Remove hostnames, addresses, URLs, storage names, credentials, and other private infrastructure details.
+  - type: input
+    id: version
+    attributes:
+      label: HORCRUX version
+      description: Run `./proxmox-health-check.sh --version`.
+      placeholder: HORCRUX Proxmox Health Check 1.0.1
+    validations:
+      required: true
+  - type: input
+    id: proxmox-version
+    attributes:
+      label: Proxmox VE version
+      description: Provide the relevant `pveversion` result after sanitizing it.
+      placeholder: pve-manager/9.x
+    validations:
+      required: true
+  - type: dropdown
+    id: privilege
+    attributes:
+      label: Execution privilege
+      options:
+        - root
+        - sudo
+        - unprivileged user
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Problem description
+      description: What happened, and which check was affected?
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Sanitized command
+      description: Remove real mount paths, service files, hostnames, and addresses where necessary.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Sanitized output
+      description: Include the smallest output section that demonstrates the issue.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I tested the latest release.
+          required: true
+        - label: I removed credentials and identifying infrastructure details.
+          required: true
+        - label: I reviewed existing issues for duplicates.
+          required: true
+

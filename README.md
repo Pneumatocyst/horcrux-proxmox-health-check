@@ -1,10 +1,20 @@
 # HORCRUX Proxmox Health Check
 
 [![CI](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/actions/workflows/ci.yml/badge.svg)](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Pneumatocyst/horcrux-proxmox-health-check?display_name=tag)](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/releases/latest)
+[![License](https://img.shields.io/github/license/Pneumatocyst/horcrux-proxmox-health-check)](LICENSE)
 
 A read-only Bash health report for standalone Proxmox VE hosts. It gives you a fast answer to the question: **is the host healthy, and what needs attention?**
 
 The script checks the host without deleting, restarting, pruning, or changing anything.
+
+## Current release
+
+The latest stable release is [`v1.0.1`](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/releases/tag/v1.0.1).
+
+- [Complete source package](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/releases/download/v1.0.1/HORCRUX_Proxmox_Health_Check_v1.0.1.zip)
+- [Standalone executable script](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/releases/download/v1.0.1/proxmox-health-check-v1.0.1.sh)
+- [SHA256 checksums](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/releases/download/v1.0.1/SHA256SUMS.txt)
 
 ## What it checks
 
@@ -142,6 +152,15 @@ shellcheck proxmox-health-check.sh tests/smoke-test.sh
 ## Versioning
 
 This repository uses semantic versioning. The current release is `v1.0.1`.
+
+Planned directions are tracked in [`ROADMAP.md`](ROADMAP.md).
+
+## Contributing and support
+
+- Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before proposing changes.
+- Use the structured [bug report](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/issues/new?template=bug-report.yml) or [feature request](https://github.com/Pneumatocyst/horcrux-proxmox-health-check/issues/new?template=feature-request.yml) forms.
+- Follow [`SECURITY.md`](SECURITY.md) for vulnerability-reporting guidance.
+- Never publish credentials or unsanitized homelab output.
 
 ## License
 
